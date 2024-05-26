@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -29,16 +32,18 @@ import okhttp3.RequestBody;
 public class Exam1 extends Activity {
 
     ScrollView question_scroll, answer_scroll;
+    TextView question_view, answer_view;
+    Button answer_button, new_question, save_question;
     String explanation_response;
+    String question_response;
     //String test;
     String ques;
     long duration;
     int API_number;
     //문제와 해설 API를 구분하기 위한 변수
-    TextView question_view;
-    TextView answer_view;
-    Button answer_button, new_question;
+    final static String folder_name = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() +"/File";
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+    final static String file_name = "bookmark.txt";
     OkHttpClient client;
     private static final String MY_SECRET_KEY = "";
 
@@ -53,6 +58,7 @@ public class Exam1 extends Activity {
         answer_view = findViewById(R.id.answer_view);
         answer_button = findViewById(R.id.answer_button);
         new_question = findViewById(R.id.new_question);
+        save_question = findViewById(R.id.save_question);
 
         // 첫 페이지에서 학습내용 받아오기
         Intent intent = getIntent();
@@ -121,6 +127,15 @@ public class Exam1 extends Activity {
             }
         });
         //새로운 문제 요청 버튼 click 이벤트 설정
+
+        save_question.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String save_contents = "문제: " +question_response +"\n"+"\n"+ explanation_response+"\n"+"\n";
+                WriteTextFile(folder_name, file_name, save_contents);
+            }
+        });
+        // 문제 저장 버튼 클릭시 저장 함수 호출을 통해 현재의 문제를 저장 -> 텍스트 파일
     }
 
     void addResponse(String response) {
@@ -215,9 +230,10 @@ public class Exam1 extends Activity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                addResponse(content.trim()+"\n");
+                                question_response = content.trim();
+                                addResponse(question_response+"\n");
                                 API_number = 2;
-                                fetchExplanation(content.trim());
+                                fetchExplanation(question_response);
                             }
                         });
                         /*runOnUiThread를 통해 UI 스레드 에서 작업을 수행
@@ -359,5 +375,21 @@ public class Exam1 extends Activity {
             }
         });
     }
-}
 
+    void WriteTextFile(String foldername, String filename, String content) {
+        try {
+            File dir = new File(folder_name);
+            // 디렉토리 객체 설정
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }// 디렉토리 폴더가 없으면 생성
+
+            FileOutputStream fos = new FileOutputStream(foldername + "/" + filename, true);
+            //파일 출력 스트림 생성
+            fos.write(content.getBytes());
+            //입력 받은 content 를 바이트로 변환 해서 파일에 저장
+            fos.close();
+            //파일 닫기
+        } catch (IOException e) {e.printStackTrace();}
+    }
+}
