@@ -52,7 +52,9 @@
             android:fontFamily="@font/kopubworlddotumlight"
             android:text="정답 확인"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:stateListAnimator="@null" />
+
     </LinearLayout>
 
     <ScrollView
