@@ -14,22 +14,23 @@
         android:layout_height="1dp"
         android:layout_gravity="center|center_horizontal|center_vertical"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:layout_weight="2"
         android:background="@drawable/rounded_corner"
-        android:backgroundTint="#802196F3">
+        android:backgroundTint="#80A4E1A7">
 
         <TextView
             android:id="@+id/question_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="8dp"
-            android:text="문제: "
+            android:fontFamily="@font/kopubworlddotumlight"
+            android:text="문제 : "
             android:textSize="20sp" />
 
     </ScrollView>
@@ -43,12 +44,15 @@
             android:id="@+id/answer_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_corner"
-            android:backgroundTint="#80A29CAC"
-            android:text="정답 확인하기" />
+            android:backgroundTint="#80A4E1A7"
+            android:fontFamily="@font/kopubworlddotumlight"
+            android:text="정답 확인"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <ScrollView
@@ -57,22 +61,23 @@
         android:layout_height="1dp"
         android:layout_gravity="center|center_horizontal|center_vertical"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:layout_weight="2"
         android:background="@drawable/rounded_corner"
-        android:backgroundTint="#80673AB7">
+        android:backgroundTint="#DEE2E6">
 
         <TextView
             android:id="@+id/answer_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="8dp"
-            android:text="정답: "
+            android:fontFamily="@font/kopubworlddotumlight"
+            android:text="정답 : "
             android:textSize="20sp" />
 
     </ScrollView>
@@ -86,25 +91,31 @@
             android:id="@+id/new_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
+            android:layout_marginBottom="40dp"
+            android:layout_weight="0.7"
             android:background="@drawable/rounded_corner"
-            android:backgroundTint="#80A29CAC"
-            android:text="새로운 문제\n생성하기" />
+            android:backgroundTint="#C8E4AF"
+            android:fontFamily="@font/kopubworlddotumlight"
+            android:text="새로운 문제 생성"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/save_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="40dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_corner"
-            android:backgroundTint="#80A29CAC"
-            android:text="문제\n저장하기" />
+            android:backgroundTint="#DEE2E6"
+            android:fontFamily="@font/kopubworlddotumlight"
+            android:text="현재 문제 저장"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>
