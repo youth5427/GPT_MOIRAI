@@ -21,6 +21,6 @@ public class StartLoading extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 2000); // 2초 딜레이 부여
+        }, 1000); // 1초 딜레이 부여
     }
 }
