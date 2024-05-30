@@ -87,10 +87,11 @@ public class Bookmark extends Activity {
         File folder = new File(foldername);
         if (folder.exists() && folder.isDirectory()) {
             File[] files = folder.listFiles();
-            if (files != null) {
+            if (files != null && files.length > 0) {
                 for (File file : files) {
                     if (file.isFile() && !file.getName().equals(excludefilename)) {
                         try {
+                            //Question_view.setVisibility(View.GONE);
                             FileInputStream fis = new FileInputStream(file);
                             byte[] result = new byte[fis.available()];
                             int resultLength = fis.read(result);

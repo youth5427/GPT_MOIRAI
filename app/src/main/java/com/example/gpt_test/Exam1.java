@@ -40,7 +40,7 @@ public class Exam1 extends Activity {
     long duration;
     int API_number;
     //문제와 해설 API를 구분하기 위한 변수
-    final static String folder_name = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() +"/File";
+    final static String folder_name = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() +"/MOIRAI";
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     final static String file_name = "bookmark.txt";
     OkHttpClient client;
