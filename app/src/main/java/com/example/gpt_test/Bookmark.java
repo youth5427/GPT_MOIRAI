@@ -24,7 +24,7 @@ public class Bookmark extends Activity {
     ScrollView bookmark_scroll;
     TextView Question_view;
 
-    Button backToMain, backToQuestion;
+    Button backToMain;
     LinearLayout Question_linear;
 
     @Override
@@ -37,7 +37,6 @@ public class Bookmark extends Activity {
         int count = countFiles(folder_name);
 
         backToMain = findViewById(R.id.backToMain);
-        backToQuestion = findViewById(R.id.backToQuestion);
 
         bookmark_scroll = findViewById(R.id.bookmark_scroll);
         Question_view = findViewById(R.id.Question_view);
@@ -76,16 +75,7 @@ public class Bookmark extends Activity {
         backToMain.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        backToQuestion.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), Exam1.class);
-                startActivity(intent);
+                finish();
             }
         });
 
@@ -108,13 +98,13 @@ public class Bookmark extends Activity {
                             fileContents.add(saved_question);
                             fis.close();
                         } catch (Exception e) {
-                            Toast.makeText(this, "Error reading file: " + file.getName(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Error reading file: " + file.getName(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
             }
         } else {
-            Toast.makeText(this, "읽어올 파일이 없음", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "읽어올 파일이 없음", Toast.LENGTH_SHORT).show();
         }
         return fileContents;
     }
