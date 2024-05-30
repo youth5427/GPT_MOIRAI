@@ -53,7 +53,7 @@ public class Bookmark extends Activity {
              */
 
         } catch (Exception e) {
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
         }
 
         bookmark_scroll.post(new Runnable() {
