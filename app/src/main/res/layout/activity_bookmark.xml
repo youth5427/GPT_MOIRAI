@@ -23,7 +23,7 @@
         <ScrollView
             android:id="@+id/bookmark_scroll"
             android:layout_width="match_parent"
-            android:layout_height="661dp"
+            android:layout_height="549dp"
             android:background="#80A4E1A7">
 
             <LinearLayout
@@ -41,6 +41,43 @@
                     android:textSize="20sp" />
             </LinearLayout>
         </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:orientation="horizontal"
+            android:paddingTop="15dp">
+
+            <Button
+                android:id="@+id/backToMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="40dp"
+                android:layout_weight="0.7"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="#C8E4AF"
+                android:fontFamily="@font/kopubworlddotumlight"
+                android:text="메인화면으로"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/backToQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="#DEE2E6"
+                android:fontFamily="@font/kopubworlddotumlight"
+                android:text="더 질문하기"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

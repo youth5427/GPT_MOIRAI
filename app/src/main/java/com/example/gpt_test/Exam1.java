@@ -19,7 +19,6 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
@@ -57,8 +56,8 @@ public class Exam1 extends Activity {
         question_view = findViewById(R.id.question_view);
         answer_view = findViewById(R.id.answer_view);
         answer_button = findViewById(R.id.answer_button);
-        new_question = findViewById(R.id.new_question);
-        save_question = findViewById(R.id.save_question);
+        new_question = findViewById(R.id.backToMain);
+        save_question = findViewById(R.id.backToQuestion);
 
         // 첫 페이지에서 학습내용 받아오기
         Intent intent = getIntent();
