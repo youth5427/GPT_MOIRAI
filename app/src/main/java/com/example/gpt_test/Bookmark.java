@@ -1,10 +1,12 @@
 package com.example.gpt_test;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Environment;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -22,13 +24,21 @@ public class Bookmark extends Activity {
     ScrollView bookmark_scroll;
     TextView Question_view;
 
+    Button backToMain, backToQuestion;
     LinearLayout Question_linear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookmark);
+
+        Intent intent = getIntent();
+
         int count = countFiles(folder_name);
+
+        backToMain = findViewById(R.id.backToMain);
+        backToQuestion = findViewById(R.id.backToQuestion);
+
         bookmark_scroll = findViewById(R.id.bookmark_scroll);
         Question_view = findViewById(R.id.Question_view);
         Question_linear = findViewById(R.id.Question_Linear);
@@ -41,8 +51,8 @@ public class Bookmark extends Activity {
 
                 textView.setLayoutParams(new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,     //width
-                        LinearLayout.LayoutParams.MATCH_PARENT
-                        ));   // height
+                        LinearLayout.LayoutParams.MATCH_PARENT      // height
+                        ));
 
                 Question_linear.addView(textView);
             }
@@ -62,6 +72,24 @@ public class Bookmark extends Activity {
                 bookmark_scroll.smoothScrollTo(0, 0);
             }
         });
+
+        backToMain.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        backToQuestion.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), Exam1.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     private ArrayList<String> readAllFilesFromFolder(String foldername, String excludefilename) {
@@ -108,4 +136,7 @@ public class Bookmark extends Activity {
             return 0;
         }
     }
+
+
+
 }

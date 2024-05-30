@@ -38,6 +38,11 @@
             android:exported="false"
             android:configChanges="orientation|screenSize" />
 
+        <activity
+            android:name=".Bookmark"
+            android:exported="false"
+            android:configChanges="orientation|screenSize" />
+
     </application>
 
 </manifest>

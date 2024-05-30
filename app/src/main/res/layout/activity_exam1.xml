@@ -90,7 +90,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/new_question"
+            android:id="@+id/backToMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -105,7 +105,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/save_question"
+            android:id="@+id/backToQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
