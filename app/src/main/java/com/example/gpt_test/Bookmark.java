@@ -1,5 +1,6 @@
 package com.example.gpt_test;
 
+import android.app.Activity;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +16,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 
 
-public class Bookmark extends AppCompatActivity {
+public class Bookmark extends Activity {
     final static String folder_name = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/MOIRAI";
     final static String file_name = "count.txt";
     ScrollView bookmark_scroll;

@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     ScrollView study_scroll;
     EditText study_view;
-    Button reset, submit;
+    Button reset, submit, bookmark;
     String study;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         study_view = findViewById(R.id.study_view);
         reset = findViewById(R.id.reset);
         submit = findViewById(R.id.submit);
+        bookmark = findViewById(R.id.Button);
 
         // 스크롤 기능 추가
         study_scroll.post(new Runnable() {
@@ -54,7 +55,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        bookmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Bookmark.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
