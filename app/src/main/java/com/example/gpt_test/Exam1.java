@@ -48,7 +48,7 @@ public class Exam1 extends Activity {
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     final static String file_name = "bookmark.txt";
     OkHttpClient client;
-    private static final String MY_SECRET_KEY = "";
+    private static final String MY_SECRET_KEY = "YOUR_KEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
