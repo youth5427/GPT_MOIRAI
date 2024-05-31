@@ -48,6 +48,9 @@ public class Bookmark extends Activity {
                 TextView textView = new TextView(this);
                 textView.setText(fileContents.get(i));
 
+                //drawable 에서 사전에 만든 텍스트 뷰 속성을 넣음
+                textView.setBackgroundResource(R.drawable.border);
+
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,     // width
                         LinearLayout.LayoutParams.WRAP_CONTENT      // height
@@ -56,6 +59,9 @@ public class Bookmark extends Activity {
                 // Convert 10dp to pixels
                 int marginInPixels = (int) (10 * getResources().getDisplayMetrics().density + 0.5f);
                 params.setMargins(marginInPixels, 0, marginInPixels, 0);
+
+                // 위아래 간격을 넓히기 위해 추가 마진 설정
+                params.setMargins(marginInPixels, marginInPixels, marginInPixels, marginInPixels);
 
                 textView.setLayoutParams(params);
                 Question_linear.addView(textView);
