@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -13,7 +15,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     ScrollView study_scroll;
     EditText study_view;
-    Button reset, submit, bookmark;
+    Button reset, submit;
+    ImageButton bookmark;
     String study;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
