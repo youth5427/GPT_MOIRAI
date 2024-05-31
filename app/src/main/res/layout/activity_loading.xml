@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:orientation="vertical"
+    android:background="#C8E4AF">
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="45dp"
+        android:fontFamily="@font/playfairdisplayvariablefontwght"
+        android:gravity="center"
+        android:text="MOIRAI"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/app_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="45dp"
+        android:fontFamily="@font/kopubworlddotumlight"
+        android:gravity="center"
+        android:text="언제 어디서든 편리하게\n 나만의 학습 도우미"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
