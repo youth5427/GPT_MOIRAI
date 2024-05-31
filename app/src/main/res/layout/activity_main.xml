@@ -12,7 +12,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginTop="30sp"
         android:orientation="horizontal">
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1" />
 
         <TextView
             android:id="@+id/describe"
@@ -26,17 +33,24 @@
             android:textStyle="bold" />
 
         <View
-            android:id="@+id/view"
-            android:layout_width="201dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/Button"
-            android:layout_width="60dp"
+            android:id="@+id/view2"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
-            android:text="bookmark"
-            android:textSize="11sp" />
+            android:layout_weight="0.3" />
+
+        <ImageButton
+            android:id="@+id/Button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bookmark"
+            />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.0" />
+
     </LinearLayout>
 
     <TextView
