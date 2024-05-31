@@ -24,7 +24,7 @@
         <TextView
             android:id="@+id/describe"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:fontFamily="@font/playfairdisplayvariablefontwght"
             android:text="MOIRAI"
@@ -53,19 +53,19 @@
 
     </LinearLayout>
 
+
     <TextView
         android:id="@+id/introduce"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/kopubworlddotumlight"
         android:paddingLeft="20dp"
         android:text="사용자의 학습을 도와주는 MOIRAI 입니다."
-        android:fontFamily="@font/kopubworlddotumlight"
         android:textColor="#0B0606"
         android:textSize="18sp"
-        android:textStyle="bold"/>
-
+        android:textStyle="bold" />
 
     <ScrollView
         android:id="@+id/study_scroll"
@@ -90,6 +90,7 @@
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/kopubworlddotumlight"
             android:hint="학습 내용을 입력해 주세요."
+            android:textColor="#0B0606"
             android:textSize="20sp" />
 
     </ScrollView>

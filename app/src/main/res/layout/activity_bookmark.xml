@@ -9,22 +9,44 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="60sp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/BookMark"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:paddingTop="10dp"
-            android:text="bookmark"
-            android:textSize="40sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="나만의 학습지"
+            android:textColor="#0B0606"
+            android:textSize="30sp"
+            android:fontFamily="@font/kopubworlddotumlight"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/introduce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:text="생성한 문제를 저장하고 다시 풀어볼 수 있어요."
+            android:fontFamily="@font/kopubworlddotumlight"
+            android:textColor="#0B0606"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
 
         <ScrollView
             android:id="@+id/bookmark_scroll"
             android:layout_width="match_parent"
-            android:layout_height="549dp"
-            android:background="#80A4E1A7">
+            android:layout_height="393dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="#80A4E1A7">
 
             <LinearLayout
                 android:id="@+id/Question_Linear"
@@ -36,6 +58,11 @@
                     android:id="@+id/Question_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/kopubworlddotumlight"
                     android:gravity="center_horizontal"
                     android:text="There's no Question"
                     android:textSize="20sp" />
@@ -50,16 +77,16 @@
 
             <Button
                 android:id="@+id/backToMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="120dp"
                 android:layout_marginBottom="40dp"
                 android:layout_weight="0.7"
                 android:background="@drawable/rounded_corner"
                 android:backgroundTint="#C8E4AF"
                 android:fontFamily="@font/kopubworlddotumlight"
-                android:text="메인화면으로"
+                android:text="메인 화면 이동"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
