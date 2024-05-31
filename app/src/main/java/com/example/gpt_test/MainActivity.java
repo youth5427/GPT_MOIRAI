@@ -12,6 +12,8 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 
+// Last_Update: 2024.05.31
+// version: 1.0.0
 public class MainActivity extends AppCompatActivity {
     ScrollView study_scroll;
     EditText study_view;
