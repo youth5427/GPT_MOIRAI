@@ -43,7 +43,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/bookmark"
-            />
+            android:contentDescription="북마크 추가"/>
 
         <View
             android:id="@+id/view3"
