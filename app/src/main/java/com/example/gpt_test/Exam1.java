@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,6 +19,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -41,6 +43,8 @@ public class Exam1 extends Activity {
     int API_number;
     //문제와 해설 API를 구분하기 위한 변수
     final static String folder_name = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() +"/MOIRAI";
+    final static String file_count = "count.txt";
+
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     final static String file_name = "bookmark.txt";
     OkHttpClient client;
@@ -130,8 +134,14 @@ public class Exam1 extends Activity {
         save_question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int count = readCountFromFile(folder_name, file_count);
+                count++;
+                String file_name = "bookmark"+String.valueOf(count) + ".txt";
                 String save_contents = "문제: " +question_response +"\n"+"\n"+ explanation_response+"\n"+"\n";
-                WriteTextFile(folder_name, file_name, save_contents);
+
+                WriteTextFile(folder_name, file_name, save_contents, true);
+                WriteTextFile(folder_name, file_count, String.valueOf(count), false);
+                Toast.makeText(getApplicationContext(), "저장 완료", Toast.LENGTH_SHORT).show();
             }
         });
         // 문제 저장 버튼 클릭시 저장 함수 호출을 통해 현재의 문제를 저장 -> 텍스트 파일
@@ -374,7 +384,7 @@ public class Exam1 extends Activity {
         });
     }
 
-    void WriteTextFile(String foldername, String filename, String content) {
+    void WriteTextFile(String foldername, String filename, String content, boolean apend) {
         try {
             File dir = new File(folder_name);
             // 디렉토리 객체 설정
@@ -382,12 +392,28 @@ public class Exam1 extends Activity {
                 dir.mkdirs();
             }// 디렉토리 폴더가 없으면 생성
 
-            FileOutputStream fos = new FileOutputStream(foldername + "/" + filename, true);
+            FileOutputStream fos = new FileOutputStream(foldername + "/" + filename, apend);
             //파일 출력 스트림 생성
             fos.write(content.getBytes());
             //입력 받은 content 를 바이트로 변환 해서 파일에 저장
             fos.close();
             //파일 닫기
         } catch (IOException e) {e.printStackTrace();}
+    }
+
+    private int readCountFromFile(String folderName, String fileName){
+        File file = new File(folderName, fileName);
+        if(!file.exists()){
+            return 0;
+        }
+        try(FileInputStream fis = new FileInputStream(file)){
+            byte[] result = new byte[(int)file.length()];
+            int resultLength = fis.read(result);
+            String countString = new String(result, 0, resultLength, "utf-8");
+            return Integer.parseInt(countString);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 }

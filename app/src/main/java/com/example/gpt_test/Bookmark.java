@@ -48,11 +48,16 @@ public class Bookmark extends Activity {
                 TextView textView = new TextView(this);
                 textView.setText(fileContents.get(i));
 
-                textView.setLayoutParams(new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,     //width
-                        LinearLayout.LayoutParams.MATCH_PARENT      // height
-                        ));
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,     // width
+                        LinearLayout.LayoutParams.WRAP_CONTENT      // height
+                );
 
+                // Convert 10dp to pixels
+                int marginInPixels = (int) (10 * getResources().getDisplayMetrics().density + 0.5f);
+                params.setMargins(marginInPixels, 0, marginInPixels, 0);
+
+                textView.setLayoutParams(params);
                 Question_linear.addView(textView);
             }
 
@@ -98,6 +103,7 @@ public class Bookmark extends Activity {
                             String saved_question = new String(result, 0, resultLength, "utf-8");
                             fileContents.add(saved_question);
                             fis.close();
+                            Question_view.setVisibility(View.GONE);
                         } catch (Exception e) {
                             Toast.makeText(getApplicationContext(), "Error reading file: " + file.getName(), Toast.LENGTH_SHORT).show();
                         }
